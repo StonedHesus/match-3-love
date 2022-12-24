@@ -9,3 +9,11 @@
 --]]
 
 GAME_TITLE = "Match 3"
+
+-- Actual physical window dimensions.
+WINDOW_WIDTH = 1280
+WINDOW_HEIGHT = 720
+
+-- Virtual resolution dimension.
+VIRTUAL_WIDTH = 512
+VIRTUAL_HEIGHT = 288
