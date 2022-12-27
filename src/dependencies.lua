@@ -11,6 +11,16 @@ push = require 'lib.push'
 timer = require 'lib.knife.timer'
 class = require 'lib.class'
 
+
 -- Require statements for our own units.
 require 'src.constants'
+require 'src.util'
 
+-- Global tables.
+gGraphics = {
+    ['main'] = love.graphics.newImage('graphics/match3.png'),
+}
+
+gSprites = {
+    ['tiles'] = generateGroupedQuads(gGraphics['main'], 2, 32, 32),
+}

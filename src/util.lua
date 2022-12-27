@@ -28,3 +28,43 @@ function generateQuads(atlas, width, height)
 	return quads
 end
 
+--[[
+--	Given an atlas, a number of features, i.e. the number of different sprite grouping present within a row; a width and a hight, this function slices the given atlas 
+--	into a table of tables of quads.
+--
+--	DO NOTE: That the main design behind the algorithm of this routine is similar to that of generateQuads.
+]]
+---@param atlas a love2d provided image type.
+---@param numberOfFeaturesPerRow the number of distinct features by which the samples are catalogoued for each row.
+---@param width the width of the quad which we are creating.
+---@param height the height of the quad which we are creating.
+---@return table? quads a table of tables containing the quads of all the sprites generated.
+function generateGroupedQuads(atlas, numberOfFeaturesPerRow, width, height)
+	local sheetX, sheetY = atlas:getWidth()/width, atlas:getHeight()/2
+
+	local counter = 1
+	local quads = {}
+
+	local maxSampleCount = sheetX / numberOfFeaturesPerRow
+
+	for y = 0, sheetY - 1
+	do 
+		local sampleIndex = 1
+		quads[counter] = {} 
+
+		for x = 0, sheetX - 1
+		do 
+			if sampleIndex == (maxSampleCount + 1) then 
+				counter = counter + 1
+				sampleIndex = 1
+				quads[counter] = {}
+			end
+			quads[counter][sampleIndex] = love.graphics.newQuad(x * width, y * height, width, height, atlas:getDimensions())
+			sampleIndex = sampleIndex + 1
+		end
+
+		counter = counter + 1
+	end
+	
+	return quads
+end
