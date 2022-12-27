@@ -8,6 +8,7 @@
 
 -- External libraries used throughout the project.
 push = require 'lib.push'
+timer = require 'lib.knife.timer'
 
 -- Require statements for our own units.
 require 'src.constants'
