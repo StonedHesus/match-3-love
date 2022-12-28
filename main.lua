@@ -3,6 +3,9 @@ require 'src.dependencies'
 love.graphics.setDefaultFilter('nearest', 'nearest')
 
 function love.load()
+    gStateMachine = StateMachine {
+    }
+
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         vsync = true,
         fullscreen = false,

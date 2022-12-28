@@ -15,6 +15,7 @@ class = require 'lib.class'
 -- Require statements for our own units.
 require 'src.constants'
 require 'src.util'
+require 'src.state-machine.StateMachine'
 
 -- Global tables.
 gGraphics = {
