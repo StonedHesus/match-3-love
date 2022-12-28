@@ -19,7 +19,7 @@ function Brick:draw()
     love.graphics.draw(gGraphics['main'], gSprites['tiles'][self.skin][self.tier], self.x, self.y)
 end
 
-Builder = class{}
+BrickBuilder = class{}
 
 --- This here routine is the constructor of the Builder type, it takes in 
 --- the two carthesian coordinates which will determine where the brick object 
@@ -27,7 +27,7 @@ Builder = class{}
 --- brick are both set to one.
 ---@param x number 
 ---@param y number
-function Builder:init(x, y)
+function BrickBuilder:init(x, y)
     self.x = x
     self.y = y 
 
@@ -40,8 +40,8 @@ end
 --- This here routine belongs to the Builder type, and its role is to set the tier 
 --- to the provided value and then return a reference to the current builder object. 
 ---@param tier number
----@return Builder
-function Builder:setTier(tier)
+---@return BrickBuilder
+function BrickBuilder:setTier(tier)
     self.tier = tier
     return self
 end
@@ -49,15 +49,15 @@ end
 --- This here routine belongs to the Builder type, and its role is to set the skin 
 --- to the provided value and then return a reference to the current builder object. 
 ---@param skin number
----@return Builder
-function Builder:setSkin(skin)
+---@return BrickBuilder
+function BrickBuilder:setSkin(skin)
     self.skin = skin
     return self
 end
 
 --- This here routine is responsible for building the Brick object from the values 
 --- which are specified and stored within the builder object which invoked this routine.
----@return Brick
-function Builder:build()
+---@return BrickBuilder
+function BrickBuilder:build()
     return Brick(self)
 end
