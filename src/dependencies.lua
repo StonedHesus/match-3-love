@@ -18,6 +18,7 @@ class = require 'lib.class'
 require 'src.constants'
 require 'src.util'
 require 'src.state-machine.StateMachine'
+require 'src.states.start-state.StartState'
 require 'src.states.play-state.PlayState'
 
 -- Global tables.
