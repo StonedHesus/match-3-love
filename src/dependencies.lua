@@ -6,6 +6,8 @@
 --	This design reduces the likelyhood of a conflict between the requirement calls.
 --]]
 
+love.graphics.setDefaultFilter('nearest', 'nearest')
+
 -- External libraries used throughout the project.
 push = require 'lib.push'
 timer = require 'lib.knife.timer'
@@ -16,10 +18,12 @@ class = require 'lib.class'
 require 'src.constants'
 require 'src.util'
 require 'src.state-machine.StateMachine'
+require 'src.states.play-state.PlayState'
 
 -- Global tables.
 gGraphics = {
     ['main'] = love.graphics.newImage('graphics/match3.png'),
+    ['background'] = love.graphics.newImage('graphics/background.png')
 }
 
 gSprites = {
