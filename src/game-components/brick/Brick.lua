@@ -15,8 +15,12 @@ function Brick:init(builder)
     self.skin = builder.skin
 end
 
-function Brick:draw()
-    love.graphics.draw(gGraphics['main'], gSprites['tiles'][self.skin][self.tier], self.x, self.y)
+--- This here routine is responsible for drawing the brick object to the screen, in accordance to a 
+--- a specified offset.
+---@param offsetX number
+---@param offsetY number
+function Brick:draw(offsetX, offsetY)
+    love.graphics.draw(gGraphics['main'], gSprites['tiles'][self.skin][self.tier], self.x + offsetX, self.y + offsetY)
 end
 
 BrickBuilder = class{}
