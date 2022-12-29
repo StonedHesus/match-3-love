@@ -6,6 +6,7 @@ local scrollVelocity = 80
 
 function love.load()
     gStateMachine = StateMachine {
+        ['start'] = function() return StartState() end,
         ['play'] = function() return PlayState() end   
     }
 
@@ -18,7 +19,7 @@ function love.load()
 
     love.keyboard.pressedKeys = {}
 
-    gStateMachine:change('play')
+    gStateMachine:change('start')
 end
 
 function love.keypressed(key)

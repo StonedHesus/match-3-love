@@ -32,6 +32,10 @@ function PlayState:update(deltaTime)
     if love.keyboard.wasPressed('return') then 
         highlight = not highlight
     end
+
+    if love.keyboard.wasPressed('escape') then 
+        gStateMachine:change('start')
+    end
 end
 
 function PlayState:render()
